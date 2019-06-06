@@ -53,7 +53,7 @@ def region_of_interest(image):
     masked_image = cv2.bitwise_and(image, mask)
     return masked_image
 
-'''image = cv2.imread("test_image.jpg")
+image = cv2.imread("test_image.jpg")
 lane_image = np.copy(image)
 canny1 = canny(lane_image)
 cropped_image = region_of_interest(canny1)
@@ -62,7 +62,9 @@ averaged_lines = average_slope_intercept(lane_image, lines)
 line_image = display_lines(lane_image, averaged_lines)
 combo_image = cv2.addWeighted(lane_image, 0.8, line_image, 1, 1)
 cv2.imshow('result',combo_image)
-cv2.waitKey(0)'''
+cv2.imwrite("result.jpg",combo_image)
+cv2.waitKey(0)
+'''
 
 cap =  cv2.VideoCapture("test2.mp4")
 while(cap.isOpened):
@@ -78,3 +80,4 @@ while(cap.isOpened):
         break
 cap.release()
 cv2.destryAllWindows()
+'''
